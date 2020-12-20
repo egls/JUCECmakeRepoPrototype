@@ -1,6 +1,6 @@
-project(NewPluginTemplate VERSION 0.0.1)
+project(MinimalPluginTemplate VERSION 0.0.1)
 
-set (BaseTargetName NewPluginTemplate)
+set (BaseTargetName MinimalPluginTemplate)
 
 juce_add_plugin("${BaseTargetName}"
         # VERSION ...                               # Set this if the plugin version is different to the project version
@@ -14,13 +14,13 @@ juce_add_plugin("${BaseTargetName}"
         EDITOR_WANTS_KEYBOARD_FOCUS FALSE
         COPY_PLUGIN_AFTER_BUILD TRUE
         PLUGIN_MANUFACTURER_CODE Juce
-        PLUGIN_CODE Dem0
+        PLUGIN_CODE MIpl
         FORMATS AU VST3 Standalone
-        PRODUCT_NAME "Audio Plugin Example")
+        PRODUCT_NAME "Minimal Plugin Template")
 
 target_sources(${BaseTargetName} PRIVATE
         Source/PluginProcessor.cpp
-        Source/PluginEditor.cpp)
+        Source/Helpers/AudioProcessorBase.cpp)
 
 target_compile_definitions(${BaseTargetName}
         PUBLIC
@@ -29,7 +29,7 @@ target_compile_definitions(${BaseTargetName}
         JUCE_VST3_CAN_REPLACE_VST2=0)
 
 target_link_libraries(${BaseTargetName} PRIVATE
-        juce::juce_audio_utils
-        juce::juce_recommended_config_flags
-        juce::juce_recommended_lto_flags
-        juce::juce_recommended_warning_flags)
+        juce_audio_utils
+        juce_recommended_config_flags
+        juce_recommended_lto_flags
+        juce_recommended_warning_flags)

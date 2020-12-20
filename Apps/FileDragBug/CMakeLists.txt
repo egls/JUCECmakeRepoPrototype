@@ -1,8 +1,9 @@
-project(CustomModuleTest VERSION 0.0.1)
+project(FileDragBug VERSION 0.0.1)
 
-set(TargetName ${PROJECT_NAME})
+set (TargetName ${PROJECT_NAME})
 
-juce_add_gui_app(${TargetName} PRODUCT_NAME "Custom Module Test")
+juce_add_gui_app(${TargetName} PRODUCT_NAME "FileDragBug")
+juce_generate_juce_header(${TargetName})
 
 target_sources(${TargetName} PRIVATE
         Source/Main.cpp
@@ -19,4 +20,4 @@ target_link_libraries(${TargetName} PRIVATE
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags
-        custom_module_test)
+        juce::juce_gui_extra)
