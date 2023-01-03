@@ -19,8 +19,7 @@ juce_add_plugin("${BaseTargetName}"
         PRODUCT_NAME "Minimal Plugin Template")
 
 target_sources(${BaseTargetName} PRIVATE
-        Source/PluginProcessor.cpp
-        Source/Helpers/AudioProcessorBase.cpp)
+        Source/PluginProcessor.cpp)
 
 target_compile_definitions(${BaseTargetName}
         PUBLIC
@@ -29,6 +28,7 @@ target_compile_definitions(${BaseTargetName}
         JUCE_VST3_CAN_REPLACE_VST2=0)
 
 target_link_libraries(${BaseTargetName} PRIVATE
+        shared_plugin_helpers
         juce_audio_utils
         juce_recommended_config_flags
         juce_recommended_lto_flags
